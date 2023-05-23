@@ -117,7 +117,7 @@ This is my very personal and probably biased view:
 | MsgPack (flax)          | 🗸 | 🗸 | ✗ | 🗸 | ✗ | ✗ | 🗸 |
 | Protobuf (ONNX)         | 🗸 | ✗ | ✗ | ✗ | ✗ | ✗ | 🗸 |
 | Cap'n'Proto             | 🗸 | 🗸 | ~ | 🗸 | 🗸 | ~ | ✗ |
-| Arrow                   | ? | ? | ? | ? | ? | ? | ✗ |
+| Arrow (.arrow)          | 🗸 | 🗸 | 🗸 | 🗸 | 🗸 | 🗸 | ✗ |
 | Numpy (npy,npz)         | 🗸 | ? | ? | ✗ | 🗸 | ✗ | ✗ |
 | pdparams (Paddle)       | ✗ | ✗ | ✗ | 🗸 | ✗ | 🗸 | 🗸 |
 | SafeTensors             | 🗸 | 🗸 | 🗸 | 🗸 | 🗸 | ✗ | 🗸 |
@@ -142,7 +142,7 @@ necessary)? This is becoming increasingly important in the ML world.
 - Protobuf: Hard 2Go max file size limit
 - Cap'n'proto: Float16 support is not present [link](https://capnproto.org/language.html#built-in-types) so using a manual wrapper over a byte-buffer would be necessary. Layout control seems possible but not trivial as buffers have limitations [link](https://stackoverflow.com/questions/48458839/capnproto-maximum-filesize).
 - Numpy (npz): No `bfloat16` support. Vulnerable to zip bombs (DOS). Not zero-copy.
-- Arrow: No `bfloat16` support. Seem to require decoding [link](https://arrow.apache.org/docs/python/parquet.html#reading-parquet-and-memory-mapping)
+- Arrow: No `bfloat16` support. Requires decoding for parquet, though not native `.arrow` format. [link](https://arrow.apache.org/docs/python/parquet.html#reading-parquet-and-memory-mapping). [Tensor standard](https://arrow.apache.org/docs/python/generated/pyarrow.Tensor.html#pyarrow.Tensor) not widely used and separate from columnar table standard.
 
 ### Notes
 
